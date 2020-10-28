@@ -1,79 +1,196 @@
-var menuItems = document.getElementById("menuItems");
-menuItems.style.maxHeight = "0px";
-
-function menutoggle() {
-    if (menuItems.style.maxHeight == "0px") {
-        menuItems.style.maxHeight = "200px"
-    } else {
-        menuItems.style.maxHeight = "0px"
-    }
-}
-
-
-
-var loginForm = document.getElementById("LoginForm");
-var regForm = document.getElementById("RegistrationForm");
-var Indicator = document.getElementById("Indicator");
-
-function register() {
-    regForm.style.transform = "translateX(0px)";
-    loginForm.style.transform = "translateX(0px)";
-    Indicator.style.transform = "translateX(100px)";
-}
-
-function login() {
-    regForm.style.transform = "translateX(300px)";
-    loginForm.style.transform = "translateX(300px)";
-    Indicator.style.transform = "translateX(0px)";
-}
-
-let carts = document.querySelectorAll(".add-cart");
-let products = [{
-        name: "Red Printed t-shirt",
-        tag: "product-0",
-        price: 50,
-        inCart: 0
+let products = [
+    {
+        id : 1,
+        name: 'KOOVS Tie-Up Off Shoulder Top',
+        detail: `<p> Material/Fabric :Main : Poly, Georgette/ Lining : Cotton, Lycra</p>
+        <p>Size & Fit :This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+        <p> Bandeau Top  by KOOVS</p>
+        <p>Made from poly-georgette-cotton-lycra blend
+        Off shoulder neckline,
+        Tie-up detail in front,
+        Sheer style,
+        Long fluted Sleeves,
+        Regular fit.</p>`,
+        cost: 20,
+        image_one: 'https://product.koovs.com/81981_57e16385de0cd38cefb03dd4604310e5.webp',
+        image_two: 'https://product.koovs.com/81981_76e9db1e07d8bae7534bd2d2cb01d0c0.webp',
+        image_three: 'https://product.koovs.com/81981_76e9db1e07d8bae7534bd2d2cb01d0c0.webp',
+        image_four: 'https://product.koovs.com/187x230/81981_2ea26cf01812d377e5804a9c852df704.jpg'
     },
     {
-        name: "Black Sneakers",
-        tag: "BlackSneakers",
-        price: 30,
-        inCart: 0
+        id : 2,
+        name: 'Blue Saint Twin Patch Pocket Denim Jacket',
+        detail: `<p>  Material/Fabric :100% Cotton</p>
+        <p>Size & Fit :
+        This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+        <p>Jacket by BLUE SAINT</p>
+        <p>
+        Made from cotton,
+        Spread collar,
+        Front button closure,
+        Four pockets,
+        Long sleeves, 
+        Slim fit.</p>`,
+        cost: 20,
+        image_one: 'https://product.koovs.com/155086_33b5919cf1a64a6485861ab43789142f_left_super_zoom.webp',
+        image_two: 'https://product.koovs.com/155086_33b5919cf1a64a6485861ab43789142f_left_super_zoom.webp',
+        image_three: 'https://product.koovs.com/155086_33b5919cf1a64a6485861ab43789142f_left_super_zoom.webp',
+        image_four: 'https://product.koovs.com/187x230/155086_33b5919cf1a64a6485861ab43789142f_back_super_zoom.jpg'
     },
     {
-        name: "Grey joggers",
-        tag: "Greyjoggers",
-        price: 25,
-        inCart: 0
+        id : 3,
+        name: 'Blue Saint Camo Print Shacket',
+        detail: `<p>  Material/Fabric :100% Cotton</p>
+        <p>Size & Fit :
+        Wear it like a jacket or simply throw it over your t-shirt, this Camo Print Shacket will definitely add style to your personality. Pair it with slim-fit jeans and trainers to complete your new-season look.</p> 
+        <p>Jacket by BLUE SAINT</p>
+        <p>
+        Made from cotton
+        Spread collar 
+        Lightly distressed detail
+        Titch-button down closure
+        All over camo print
+        Twin patch pockets 
+        Long sleeves with cuffs
+        Regular fit .</p>`,
+        cost: 20,
+        image_one: 'https://product.koovs.com/155084_8d808fbfb30043afb415a29b133c58d6_image1_super_zoom.webp',
+        image_two: 'https://product.koovs.com/155084_8d808fbfb30043afb415a29b133c58d6_front_super_zoom.webp',
+        image_three: 'https://product.koovs.com/155084_8d808fbfb30043afb415a29b133c58d6_left_super_zoom.webp',
+        image_four: 'https://product.koovs.com/187x230/155084_8d808fbfb30043afb415a29b133c58d6_back_super_zoom.jpg'
     },
     {
-        name: "Pink off-shoulder",
-        tag: "product-0.1",
-        price: 20,
-        inCart: 0
+        id : 4,
+        name: 'KOOVS PU Desert Boots',
+        detail: `<p>Material/Fabric :PU</p>
+        <p>Size & Fit :
+        This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+        <p>Boots by KOOVS</p>
+        <p>
+        Made from PU
+        Round toe
+        Lace-up closure
+        Mid-top design
+        Raised sole</p>`,
+        cost: 20,
+        image_one: 'https://product.koovs.com/131820_4889c1f558d8ded2d1f34c3cd8646fa8.webp',
+        image_two: 'https://product.koovs.com/131820_b9d1a2134d3b79312649b1ea0cb37865.webp',
+        image_three: 'https://product.koovs.com/131820_e0a82f2f3ac933849aa3c2ad3bf68b0f.webp',
+        image_four: 'https://product.koovs.com/131820_de5ef3f15fce51faaec96a6fe91d33cc.webp'
+    },
+    {
+        id : 5,
+        name: 'Blue Saint Drawcord Waist Slim Trousers',
+        detail: `<p>Material/Fabric :98% Cotton, 2% Lycra</p>
+        <p>Size & Fit :
+        This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+        <p>Trousers by BLUE SAINT</p>
+        <p>
+        Made from cotton-lycra blend,
+        Elasticated waist with drawcord,
+        Three pockets,
+        Slim fit.</p>`,
+        cost: 20,
+        image_one: 'https://product.koovs.com/155246_0a8175f32abf4e7b994d2c06b6be3ba4_image1_super_zoom.webp',
+        image_two: 'https://product.koovs.com/155246_0a8175f32abf4e7b994d2c06b6be3ba4_front_super_zoom.webp',
+        image_three: 'https://product.koovs.com/155246_0a8175f32abf4e7b994d2c06b6be3ba4_back_super_zoom.webp',
+        image_four: 'https://product.koovs.com/155246_0a8175f32abf4e7b994d2c06b6be3ba4_left_super_zoom.webp'
+    },
+    {
+        id : 6,
+        name: 'Blue Saint Basic Raw Edge T-Shirt',
+        detail: `<p>Material/Fabric :100% Cotton</p>
+        <p>Size & Fit :
+        This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+        <p>Boots by KOOVS</p>
+        <p>
+        Made from cotton
+        Round neckline with raw edges
+        Short sleeves
+        Regular fit </p>`,
+        cost: 20,
+        image_one: 'https://product.koovs.com/155190_6f19357f5fb24f0d9fdc477fc3106e5a_image1_super_zoom.webp',
+        image_two: 'https://product.koovs.com/155190_6f19357f5fb24f0d9fdc477fc3106e5a_front_super_zoom.webp',
+        image_three: 'https://product.koovs.com/155190_6f19357f5fb24f0d9fdc477fc3106e5a_back_super_zoom.webpp',
+        image_four: 'https://product.koovs.com/131820_de5ef3f15fce51faaec96a6fe91d33cc.webphttps://product.koovs.com/155190_6f19357f5fb24f0d9fdc477fc3106e5a_left_super_zoom.webp'
+    },
+       {
+        id : 7,
+        name: 'REALM Utility Cargo Pockets Slim Trousers',
+        detail: `<p>Material/Fabric :100% Cotton</p>
+        <p>Size & Fit :
+        This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+        <p>Boots by KOOVS</p>
+        <p>
+        Made from cotton-spandex blend
+        Button and fly closure
+        Utility pockets
+        Belt loops
+        Slim fit</p>`,
+        cost: 20,
+        image_one: 'https://product.koovs.com/266x230/154884_75a5de1f6cc84c9f93724c080cde5065_image1_super_zoom.jpg',
+        image_two: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp',
+        image_three: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp',
+        image_four: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp'
     }
 ]
-for (let i = 0; i < carts.length; i++) {
-    carts[i].addEventListener('click', () => {
-        cartNumbers(products[i]);
-        totalCost(products[i]);
-    })
-}
-// console.log(cartNumbers(product))
-// carts.forEach(function(carts) {
-//     carts.addEventListener('click', () => {
-//             cartNumbers(product )
-//     })
-// });
-function onLoadCartNumbers() {
-    let productNumbers = localStorage.getItem('cartNumbers')
 
-    if (productNumbers) {
-        document.querySelector("a span").textContent = productNumbers;
+
+// Display all prodects on screen
+function addAllProducts() {
+    let productList = document.getElementById("product-list");
+
+    products.forEach((item)=>{
+        var div = document.createElement("div");
+        div.classList.add("col-4");
+        div.innerHTML = `
+        <a><img src="${item.image_one}" onclick="toPoductDetials(${item.id})"></a>
+            <a href="product-details.html"><h4>Red Printed t-shirt</h4></a>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+        <p>$${item.cost}.00</p><span><a href="#" class="btn add-cart" onclick="addToCart(${item.id})">Add to Cart</a></span>
+    `
+    productList.append(div)
+
+    });
+
+}
+
+// Redirect to product details
+function toPoductDetials(item) {
+    localStorage.setItem("selectedProduct", item);
+    window.location.replace("/shopping_oja/product-details.html");
+}
+addAllProducts();
+
+function addToCart(item) {
+    cartNumbers();
+    let cartItems = localStorage.getItem('cartItems');
+    if (cartItems) {
+        let newCartItems = JSON.parse(cartItems);
+        console.log(newCartItems)
+        if (newCartItems.includes(item - 1)){
+            return
+        } else {
+            newCartItems.push(item)
+            localStorage.setItem('cartItems', JSON.stringify(newCartItems));
+        }
+    } else {
+        let upCartItems = [ ];
+        upCartItems.push(item)
+        console.log(upCartItems)
+        localStorage.setItem('cartItems', JSON.stringify(upCartItems))
     }
+
+
 }
 
-function cartNumbers(product) {
+function cartNumbers() {
     let productNumbers = localStorage.getItem('cartNumbers')
 
     productNumbers = parseInt(productNumbers)
@@ -84,122 +201,370 @@ function cartNumbers(product) {
         localStorage.setItem('cartNumbers', 1);
         document.querySelector("a span").textContent = 1;
     }
-    setItems(product);
 }
 
-function setItems(product) {
-    let cartItems = localStorage.getItem("productsInCart");
-    cartItems = JSON.parse(cartItems)
-    //    console.log("my cartitems are", cartItems)
-    if (cartItems != null) {
+// let subCart = []
 
-        if (cartItems[product.tag] == undefined) {
-            cartItems = {
-                ...cartItems,
-                [product.tag]: product
-            }
-        }
-        cartItems[product.tag].inCart += 1;
-    } else {
-        product.inCart = 1;
-        cartItems = {
-            [product.tag]: product
+// function addToCart(itemId){
+//     subCart.push(itemId -1)
+//     cartNumbers();
 
-        }
-    }
-    localStorage.setItem("productsInCart", JSON.stringify(cartItems))
-}
-
-function totalCost(product) {
-    // console.log("the product price is",product.price)
-
-    let cartCost = localStorage.getItem('totalCost')
-    console.log("My cartCost is", cartCost)
+// }
 
 
-    console.log(typeof cartCost)
-    if (cartCost != null) {
-        cartCost = parseInt(cartCost);
-        localStorage.setItem("totalCost", cartCost + product.price);
-    } else {
-        localStorage.setItem("totalCost", product.price)
-    }
 
 
-}
 
-function displayCart() {
-    let cartItems = localStorage.getItem("productsInCart");
-    cartItems = JSON.parse(cartItems);
 
-    if (cartItems) {
-        for (let item in cartItems) {
-            attachCartItems(cartItems[item]);
-            console.log(cartItems[item])
-        }
-    }
-}
 
-function attachCartItems(item) {
-    let cartHead = document.querySelector(".cart-head");
 
-    var tr = document.createElement("tr");
 
-    tr.innerHTML = `
-    <td class="cart-body">
-        <div class="cart-info">
-            <img src="images/${item.tag}.jpg" alt="">
-            <div>
-                <p>${item.name}</p>
-                <small>Price:$${item.price}</small>
-                <br>
-                <a href="" class="remove">Remove</a>
-            </div>
-        </div>
-    </td>
-    <td> <input type="number" value=${item.inCart}></td>
-    <td>$${item.inCart*item.price}.00</td>
-    `;
 
-    cartHead.append(tr);
-    totalProductCost();
-}
 
-// trying to attach this to the table above to the right side of the page
-function totalProductCost(){
-    var div = document.createElement("div");
-    let cartPage = document.querySelector(".cart-page")
-   div.innerHTML = `<div class="col-2 total-price">
-    <table>
-        <tr>
-            <td>Subtotal</td>
-            <td>$200.00</td>
-        </tr>
-        <tr>
-            <td>Tax</td>
-            <td>$35.00</td>
-        </tr>
-        <tr>
-            <td>Total</td>
-            <td>$230.00</td>
-        </tr>
-    </table>
-</div>`
-    cartPage.append(div);
-}
 
-// function displayCart(){
-//       let cartItems = localStorage.getItem("productsInCart");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //     {
+// //     name: "Red Printed t-shirt",
+// //     tag: "product-0",
+// //     price: 50,
+// //     inCart: 0
+// // },
+// // {
+// //     name: "Black Sneakers",
+// //     tag: "BlackSneakers",
+// //     price: 30,
+// //     inCart: 0
+// // },
+// // {
+// //     name: "Grey joggers",
+// //     tag: "Greyjoggers",
+// //     price: 25,
+// //     inCart: 0
+// // },
+// // {
+// //     name: "Pink off-shoulder",
+// //     tag: "product-0.1",
+// //     price: 20,
+// //     inCart: 0
+// // }
+// ]
+// var menuItems = document.getElementById("menuItems");
+// menuItems.style.maxHeight = "0px";
+
+// function menutoggle() {
+//     if (menuItems.style.maxHeight == "0px") {
+//         menuItems.style.maxHeight = "200px"
+//     } else {
+//         menuItems.style.maxHeight = "0px"
+//     }
+// }
+
+// var loginForm = document.getElementById("LoginForm");
+// var regForm = document.getElementById("RegistrationForm");
+// var Indicator = document.getElementById("Indicator");
+
+// function register() {
+//     regForm.style.transform = "translateX(0px)";
+//     loginForm.style.transform = "translateX(0px)";
+//     Indicator.style.transform = "translateX(100px)";
+// }
+
+// function login() {
+//     regForm.style.transform = "translateX(300px)";
+//     loginForm.style.transform = "translateX(300px)";
+//     Indicator.style.transform = "translateX(0px)";
+// }
+
+
+
+// // let products = [{
+// //     name: "Red Printed t-shirt",
+// //     tag: "product-0",
+// //     price: 50,
+// //     inCart: 0
+// // },
+// // {
+// //     name: "Black Sneakers",
+// //     tag: "BlackSneakers",
+// //     price: 30,
+// //     inCart: 0
+// // },
+// // {
+// //     name: "Grey joggers",
+// //     tag: "Greyjoggers",
+// //     price: 25,
+// //     inCart: 0
+// // },
+// // {
+// //     name: "Pink off-shoulder",
+// //     tag: "product-0.1",
+// //     price: 20,
+// //     inCart: 0
+// // }
+// // ]
+
+// // {
+// //     id : 7,
+// //     name: 'REALM Utility Cargo Pockets Slim Trousers',
+// //     detail: `<p>Material/Fabric :100% Cotton</p>
+// //     <p>Size & Fit :
+// //     This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+// //     <p>Boots by KOOVS</p>
+// //     <p>
+// //     Made from cotton-spandex blend
+// //     Button and fly closure
+// //     Utility pockets
+// //     Belt loops
+// //     Slim fit</p>`,
+// //     cost: 20,
+// //     image_one: 'https://product.koovs.com/266x230/154884_75a5de1f6cc84c9f93724c080cde5065_image1_super_zoom.jpg',
+// //     image_two: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp',
+// //     image_three: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp',
+// //     image_four: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp'
+// // }
+// function addAllProducts() {
+//     let productList = document.getElementById("product-list");
+
+//     products.forEach((item)=>{
+//         var div = document.createElement("div");
+//         div.classList.add("col-4");
+//         div.innerHTML = `
+//         <a><img src="${item.image_one}" onclick="toPoductDetials(${item.id})"></a>
+//             <a href="product-details.html"><h4>Red Printed t-shirt</h4></a>
+//         <div class="rating">
+//             <i class="fa fa-star"></i>
+//             <i class="fa fa-star"></i>
+//             <i class="fa fa-star"></i>
+//             <i class="fa fa-star"></i>
+//             <i class="fa fa-star-o"></i>
+//         </div>
+//         <p onclick="addToCart(${item.id})">$${item.cost}.00</p><span><a href="#" class="btn add-cart">Add to Cart</a></span>
+//     `
+//     productList.append(div)
+
+//     });
+
+// }
+
+// function toPoductDetials(item) {
+//     localStorage.setItem("selectedProduct", item);
+//     selectedProduct.push(item)
+ 
+// }
+
+// addAllProducts();
+
+
+
+// // let carts = document.querySelectorAll(".add-cart");
+// let cartBtn = document.querySelectorAll(".add-cart");
+
+// let subCart = []
+
+// function addToCart(itemId){
+//     subCart.push(itemId -1)
+//     cartNumbers();
+
+// }
+
+// function cartNumbers() {
+//     let productNumbers = localStorage.getItem('cartNumbers')
+
+//     productNumbers = parseInt(productNumbers)
+//     if (productNumbers) {
+//         localStorage.setItem('cartNumbers', productNumbers + 1);
+//         document.querySelector("a span").textContent = productNumbers + 1
+//     } else {
+//         localStorage.setItem('cartNumbers', 1);
+//         document.querySelector("a span").textContent = 1;
+//     }
+// }
+
+
+// // function displayProductDetails() {
+// //     let selectedProductId = localStorage.getItem("selectedProduct");
+
+// //     let selectedProduct = products[selectedProductId - 1]
+// //     console.log(selectedProduct)
+
+// //     let productList = document.getElementById("product-details");   
+// //         var div = document.createElement("div");
+// //         div.classList.add("row");
+// //         div.innerHTML = `
+// //         <div class="row">
+// //             <div class="col-2">
+// //                 <img src="images/gallery-1.jpg" width="100%" id="productImg">
+// //                 <div class="small-img-row">
+// //                     <div class="small-img-col">
+// //                         <img src="images/gallery-2.jpg" width="100%" class="small-img">
+// //                     </div>
+// //                     <div class="small-img-col">
+// //                         <img src="images/gallery-3.jpg" width="100%" class="small-img">
+// //                     </div>
+// //                     <div class="small-img-col">
+// //                         <img src="images/gallery-4.jpg"  width="100%"class="small-img">
+// //                     </div>
+// //                     <div class="small-img-col">
+// //                         <img src="images/gallery-1.jpg"width="100%" class="small-img">
+// //                     </div>
+// //                 </div>
+// //             </div>
+// //             <div class="col-2">
+// //                 <p>Home/T-shirt</p>
+// //                 <h1>Red T-shirt</h1>
+// //                 <h4>$50.00</h4>
+// //                 <select>
+// //                    <option value="">Select Size</option>
+// //                    <option value="">XXL</option>
+// //                    <option value="">XL</option>
+// //                    <option value="">L</option>
+// //                    <option value="">M</option>
+// //                    <option value="">S</option>
+// //                 </select>
+// //                 <input type="number" value="1">
+// //                 <a href="" class="btn">Add To Cart</a>
+// //                 <h3>Product Details <i class="fa fa-indent"></i></h3>
+// //                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br> Aliquam recusandae dolore dolor, qui repellat alias amet corrupti iusto iste, veritatis reiciendis. <br> Est soluta illo, magni ad pariatur quo asperiores perspiciatis.</p>
+// //             </div>
+// //         </div>
+// //     `
+
+// //     productList.append(div)
+
+// // }
+
+// // displayProductDetails();
+
+
+
+
+
+// // for (let i = 0; i < carts.length; i++) {
+// //     carts[i].addEventListener('click', () => {
+// //         cartNumbers(products[i]);
+// //         totalCost(products[i]);
+// //     })
+// // }
+
+
+// // console.log(cartNumbers(product))
+// // carts.forEach(function(carts) {
+// //     carts.addEventListener('click', () => {
+// //             cartNumbers(product )
+// //     })
+// // });
+
+
+// // function onLoadCartNumbers() {
+// //     let productNumbers = localStorage.getItem('cartNumbers')
+
+// //     if (productNumbers) {
+// //         document.querySelector("a span").textContent = productNumbers;
+// //     }
+// // }
+
+// // function cartNumbers(product) {
+// //     let productNumbers = localStorage.getItem('cartNumbers')
+
+// //     productNumbers = parseInt(productNumbers)
+// //     if (productNumbers) {
+// //         localStorage.setItem('cartNumbers', productNumbers + 1);
+// //         document.querySelector("a span").textContent = productNumbers + 1
+// //     } else {
+// //         localStorage.setItem('cartNumbers', 1);
+// //         document.querySelector("a span").textContent = 1;
+// //     }
+// //     setItems(product);
+// // }
+
+// // function setItems(product) {
+// //     let cartItems = localStorage.getItem("productsInCart");
+// //     cartItems = JSON.parse(cartItems)
+// //        console.log("my cartitems are", cartItems)
+// //     if (cartItems != null) {
+
+// //         if (cartItems[product.tag] == undefined) {
+// //             cartItems = {
+// //                 ...cartItems,
+// //                 [product.tag]: product
+// //             }
+// //         }
+// //         cartItems[product.tag].inCart += 1;
+// //     } else {
+// //         product.inCart = 1;
+// //         cartItems = {
+// //             [product.tag]: product
+
+// //         }
+// //     }
+// //     localStorage.setItem("productsInCart", JSON.stringify(cartItems))
+// // }
+
+// // function totalCost(product) {
+// //     // console.log("the product price is",product.price)
+
+// //     let cartCost = localStorage.getItem('totalCost')
+// //     console.log("My cartCost is", cartCost)
+
+
+// //     console.log(typeof cartCost)
+// //     if (cartCost != null) {
+// //         cartCost = parseInt(cartCost);
+// //         localStorage.setItem("totalCost", cartCost + product.price);
+// //     } else {
+// //         localStorage.setItem("totalCost", product.price)
+// //     }
+
+
+// // }
+
+// function displayCart() {
+//     let cartItems = localStorage.getItem("productsInCart");
 //     cartItems = JSON.parse(cartItems);
-//     let productContainer = document.querySelector(".cart-info");
-//     console.log(productContainer);
 
-//     if(cartItems && productContainer){
-//         productContainer.innerHTML ='';
-//         Object.values(cartItems).map(item =>{
-//              productContainer.innerHTML += `
-            
-//              <td>
+//     if (cartItems) {
+//         for (let item in cartItems) {
+//             attachCartItems(cartItems[item]);
+//             console.log(cartItems[item])
+//         }
+//     }
+// }
+
+// function attachCartItems(item) {
+//     let cartHead = document.querySelector(".cart-head");
+
+//     var tr = document.createElement("tr");
+
+//     tr.innerHTML = `
+//     <td class="cart-body">
 //         <div class="cart-info">
 //             <img src="images/${item.tag}.jpg" alt="">
 //             <div>
@@ -211,74 +576,134 @@ function totalProductCost(){
 //         </div>
 //     </td>
 //     <td> <input type="number" value=${item.inCart}></td>
-//     <td>$${item.price}</td>
-//              `
-//         });
-//     }
+//     <td>$${item.inCart*item.price}.00</td>
+//     `;
 
-
+//     cartHead.append(tr);
+//     // totalProductCost();
 // }
-onLoadCartNumbers();
-displayCart();
 
+// let taxFactor = 0.2;
+// // trying to attach this to the table above to the right side of the page
+// function totalProductCost(){
+//     var div = document.createElement("div");
+//     let cartCost = localStorage.getItem('totalCost');
+//     let cartPage = document.querySelector("#tots");
+//     let tax = cartCost * taxFactor;
+//     let total = parseInt(tax) + parseInt(cartCost);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var productImg = document.getElementById("productImg");
-// var smallImg = document.getElementsByClassName("small-img");
-// smallImg[0].onclick = function(){
-//     productImg.src =smallImg[0].src;
+//     div.classList.add("col-2", "total-price");
+//    div.innerHTML = `
+//                 <table>
+//                     <tr>
+//                         <td>Subtotal</td>
+//                         <td>$${cartCost}</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Tax</td>
+//                         <td>$${tax}</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Total</td>
+//                         <td>${total}</td>
+//                     </tr>
+//                 </table>`;
+//     cartPage.append(div);
 // }
-// smallImg[1].onclick = function(){
-//     productImg.src =smallImg[1].src;
-// }
-// smallImg[2].onclick = function(){
-//     productImg.src =smallImg[2].src;
-// }
-// smallImg[3].onclick = function(){
-//     productImg.src =smallImg[3].src;
-// }
-// cart
-// var remove = document.getElementsByClassName("remove");
-// // console.log(remove);
-// for (var i = 0; i < remove.length; i++){
-//     var remBtn = remove[i]
-//     remBtn.addEventListener('click',function(e){
 
-//         console.log("clicked")
-//     })
-// }  
-// var removeCartItemButtons = document.getElementsByClassName('remove')
-// for (var i = 0; i < removeCartItemButtons.length; i++) {
-//     var button = removeCartItemButtons[i]
-//     button.addEventListener('click', function(e){
-//         e.preventDefault()
-//         // console.log("clicked") 
-//         var buttonClicked = e.target
-//         buttonClicked.parentElement.parentElement.remove()
-//     })
-// }
-// removeCartItemButtons
+
+// totalProductCost();
+// // function displayCart(){
+// //       let cartItems = localStorage.getItem("productsInCart");
+// //     cartItems = JSON.parse(cartItems);
+// //     let productContainer = document.querySelector(".cart-info");
+// //     console.log(productContainer);
+
+// //     if(cartItems && productContainer){
+// //         productContainer.innerHTML ='';
+// //         Object.values(cartItems).map(item =>{
+// //              productContainer.innerHTML += `
+            
+// //              <td>
+// //         <div class="cart-info">
+// //             <img src="images/${item.tag}.jpg" alt="">
+// //             <div>
+// //                 <p>${item.name}</p>
+// //                 <small>Price:$${item.price}</small>
+// //                 <br>
+// //                 <a href="" class="remove">Remove</a>
+// //             </div>
+// //         </div>
+// //     </td>
+// //     <td> <input type="number" value=${item.inCart}></td>
+// //     <td>$${item.price}</td>
+// //              `
+// //         });
+// //     }
+
+
+// // }
+// onLoadCartNumbers();
+// displayCart();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // var productImg = document.getElementById("productImg");
+// // var smallImg = document.getElementsByClassName("small-img");
+// // smallImg[0].onclick = function(){
+// //     productImg.src =smallImg[0].src;
+// // }
+// // smallImg[1].onclick = function(){
+// //     productImg.src =smallImg[1].src;
+// // }
+// // smallImg[2].onclick = function(){
+// //     productImg.src =smallImg[2].src;
+// // }
+// // smallImg[3].onclick = function(){
+// //     productImg.src =smallImg[3].src;
+// // }
+// // cart
+// // var remove = document.getElementsByClassName("remove");
+// // // console.log(remove);
+// // for (var i = 0; i < remove.length; i++){
+// //     var remBtn = remove[i]
+// //     remBtn.addEventListener('click',function(e){
+
+// //         console.log("clicked")
+// //     })
+// // }  
+// // var removeCartItemButtons = document.getElementsByClassName('remove')
+// // for (var i = 0; i < removeCartItemButtons.length; i++) {
+// //     var button = removeCartItemButtons[i]
+// //     button.addEventListener('click', function(e){
+// //         e.preventDefault()
+// //         // console.log("clicked") 
+// //         var buttonClicked = e.target
+// //         buttonClicked.parentElement.parentElement.remove()
+// //     })
+// // }
+// // removeCartItemButtons

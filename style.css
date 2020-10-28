@@ -426,8 +426,9 @@ td img{
     height:80px ;
     margin-right: 10px;
 }
-.total-price{
+ .total-price{
     padding-left: 40px;
+    min-width: 480px;
 }
 .total-price table{
     border-top: 3px dashed #957186;
