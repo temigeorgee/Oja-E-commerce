@@ -46,6 +46,25 @@
     </div>
     <!--single product details  -->
     <div class="small-container single-product" id="product-details">
+        <!-- <div class="row">
+            <div class="col-2">
+                <img src="images/gallery-1.jpg" width="100%" id="productImg">
+                <div class="small-img-row">
+                    <div class="small-img-col">
+                        <img src="images/gallery-2.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/gallery-3.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/gallery-4.jpg"  width="100%"class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/gallery-1.jpg"width="100%" class="small-img">
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </div>
 
     <div class="small-container">
@@ -173,7 +192,7 @@
         div.innerHTML = `
         <div class="row">
             <div class="col-2">
-                <img src="${selectedProduct.image_one}" width="100%" id="productImg">
+                <img src="${selectedProduct.image_one}" width="100%"  id="productImg">
                 <div class="small-img-row">
                     <div class="small-img-col">
                         <img src="${selectedProduct.image_two}" width="100%" class="small-img">
@@ -211,6 +230,21 @@
 
     productList.append(div)
 
+}
+
+var productImg = document.getElementById("productImg");
+var smallImg = document.getElementsByClassName("small-img");
+smallImg[0].onclick = function(){
+    productImg.src =smallImg[0].src;
+}
+smallImg[1].onclick = function(){
+    productImg.src =smallImg[1].src;
+}
+smallImg[2].onclick = function(){
+    productImg.src =smallImg[2].src;
+}
+smallImg[3].onclick = function(){
+    productImg.src =smallImg[3].src;
 }
 </script>
 </html> 

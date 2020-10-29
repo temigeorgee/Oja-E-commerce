@@ -1,3 +1,14 @@
+
+var menuItems = document.getElementById("menuItems");
+menuItems.style.maxHeight = "0px";
+
+function menutoggle() {
+    if (menuItems.style.maxHeight == "0px") {
+        menuItems.style.maxHeight = "200px"
+    } else {
+        menuItems.style.maxHeight = "0px"
+    }
+}
 let products = [
     {
         id : 1,
@@ -128,12 +139,110 @@ let products = [
         Belt loops
         Slim fit</p>`,
         cost: 20,
-        image_one: 'https://product.koovs.com/266x230/154884_75a5de1f6cc84c9f93724c080cde5065_image1_super_zoom.jpg',
+        image_one: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_image1_super_zoom.webp',
         image_two: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp',
-        image_three: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp',
-        image_four: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp'
+        image_three: 'https://product.koovs.com/266x230/154884_75a5de1f6cc84c9f93724c080cde5065_image1_super_zoom.jpg',
+        image_four: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp',
+    },
+    {
+        id : 8,
+        name: 'Blue Saint Contrast Collar Embroidered Slim Shirt',
+        detail: `<p>Material/Fabric :100% Cotton</p>
+        <p>Size & Fit :
+        This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+        <p>Casual Shirt by BLUE SAINT</p>
+        <p>
+        Made from cotton
+        Contrast spread collar
+        Front button closure
+        Embroidered design in front
+        Long sleeves
+        Slim fit</p>`,
+        cost: 15,
+        image_one: 'https://product.koovs.com/155654_a38d2a34bb7c41fa976eae46011679c3_image1_super_zoom.webp',
+        image_two: 'https://product.koovs.com/266x230/155654_a38d2a34bb7c41fa976eae46011679c3_image1_super_zoom.jpg',
+        image_three: 'https://product.koovs.com/266x230/155654_a38d2a34bb7c41fa976eae46011679c3_back_super_zoom.jpg',
+        image_four: 'https://product.koovs.com/155654_a38d2a34bb7c41fa976eae46011679c3_left_super_zoom.webp',
+    },
+    {
+        id : 9,
+        name: 'REALM Utility Cargo Pockets Slim Trousers',
+        detail: `<p>Material/Fabric :100% Cotton</p>
+        <p>Size & Fit :
+        This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+        <p>Boots by KOOVS</p>
+        <p>
+        Made from cotton-spandex blend
+        Button and fly closure
+        Utility pockets
+        Belt loops
+        Slim fit</p>`,
+        cost: 10,
+        image_one: 'https://product.koovs.com/146x230/155265_02db3111a12c4e78a1d9eefc5dc87c54_image1_super_zoom.jpg',
+        image_two: 'https://product.koovs.com/155265_02db3111a12c4e78a1d9eefc5dc87c54_left_super_zoom.webp',
+        image_three: 'https://product.koovs.com/155265_02db3111a12c4e78a1d9eefc5dc87c54_left_super_zoom.webp',
+        image_four: 'https://product.koovs.com/146x230/155265_02db3111a12c4e78a1d9eefc5dc87c54_back_super_zoom.jpg',
+    },
+    {
+        id : 10,
+        name: 'Blue Saint Corduroy Tie-Up Cropped Trousers',
+        detail: `<p>Material/Fabric :100% Cotton</p>
+        <p>Size & Fit :
+        This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+        <p>Trousers by BLUE SAINT  </p>
+        <p>
+        Made from cotton
+        Elasticated waist 
+        Front tie-up style
+        Twin pockets 
+        All over corduroy stripes
+        Cropped length
+        Regular fit </p>`,
+        cost: 10,
+        image_one: 'https://product.koovs.com/155391_5948dc049baa422a8f865227769f215c_image1_super_zoom.webp',
+        image_two: 'https://product.koovs.com/155391_5948dc049baa422a8f865227769f215c_front_super_zoom.webp',
+        image_three: 'https://product.koovs.com/155391_5948dc049baa422a8f865227769f215c_back_super_zoom.webp',
+        image_four: 'https://product.koovs.com/146x230/155391_5948dc049baa422a8f865227769f215c_left_super_zoom.jpg',
+    },
+    {
+        id : 11,
+        name: 'Gusto Crocskin Texture Belt',
+        detail: `<p>Material/Fabric :PU</p>
+        <p>Size & Fit :
+        This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+        <p>Boots by KOOVS</p>
+        <p>
+        Made from PU
+        Adjustable strap
+        Crocskin texture 
+        Pin & buckle fastening</p>`,
+        cost: 40,
+        image_one: 'https://product.koovs.com/125916_b043fb06c629cd233bab4e08e7b5ba24.webp',
+        image_two: 'https://product.koovs.com/146x230/125916_1c2689927ae912c1eee1f09226161ad0.jpg',
+        image_three: 'https://product.koovs.com/125916_9510a0fc60859284352041fe9265bc75.webp',
+        image_four: 'https://product.koovs.com/146x230/125916_705fdaff77cadf4ebf8a58b5d2586f4d.jpg',
+    },
+    {
+        id : 12,
+        name: 'Blue Saint Aqua Blue Short Sleeves Slim Fit Shirt',
+        detail: `<p>Material/Fabric :100% Viscose</p>
+        <p>Size & Fit :
+        This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
+        <p>Shirt by BLUE SAINT</p>
+        <p>
+        Made from Viscose
+        Spread Collar
+        Button Down
+        All Over Zebra Print
+        Short Sleeves
+        Slim Fit</p>`,
+        cost: 17,
+        image_one: 'https://product.koovs.com/155439_66b74e33b50343249b9c32d7cefccc1e_image1_super_zoom.webp',
+        image_two: 'https://product.koovs.com/146x230/155439_66b74e33b50343249b9c32d7cefccc1e_front_super_zoom.jpg',
+        image_three: 'https://product.koovs.com/146x230/155439_66b74e33b50343249b9c32d7cefccc1e_left_super_zoom.jpg',
+        image_four: 'https://product.koovs.com/146x230/155439_66b74e33b50343249b9c32d7cefccc1e_back_super_zoom.jpg'
     }
-]
+];
 
 
 // Display all prodects on screen
@@ -145,7 +254,7 @@ function addAllProducts() {
         div.classList.add("col-4");
         div.innerHTML = `
         <a><img src="${item.image_one}" onclick="toPoductDetials(${item.id})"></a>
-            <a href="product-details.html"><h4>Red Printed t-shirt</h4></a>
+            <a href="product-details.html"><h4>${item.name}</h4></a>
         <div class="rating">
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
@@ -164,7 +273,7 @@ function addAllProducts() {
 // Redirect to product details
 function toPoductDetials(item) {
     localStorage.setItem("selectedProduct", item);
-    window.location.replace("/shopping_oja/product-details.html");
+    window.location.replace("/product-details.html");
 }
 addAllProducts();
 
@@ -276,32 +385,23 @@ function cartNumbers() {
 // //     inCart: 0
 // // }
 // ]
-// var menuItems = document.getElementById("menuItems");
-// menuItems.style.maxHeight = "0px";
 
-// function menutoggle() {
-//     if (menuItems.style.maxHeight == "0px") {
-//         menuItems.style.maxHeight = "200px"
-//     } else {
-//         menuItems.style.maxHeight = "0px"
-//     }
-// }
 
-// var loginForm = document.getElementById("LoginForm");
-// var regForm = document.getElementById("RegistrationForm");
-// var Indicator = document.getElementById("Indicator");
+var loginForm = document.getElementById("LoginForm");
+var regForm = document.getElementById("RegistrationForm");
+var Indicator = document.getElementById("Indicator");
 
-// function register() {
-//     regForm.style.transform = "translateX(0px)";
-//     loginForm.style.transform = "translateX(0px)";
-//     Indicator.style.transform = "translateX(100px)";
-// }
+function register() {
+    regForm.style.transform = "translateX(0px)";
+    loginForm.style.transform = "translateX(0px)";
+    Indicator.style.transform = "translateX(100px)";
+}
 
-// function login() {
-//     regForm.style.transform = "translateX(300px)";
-//     loginForm.style.transform = "translateX(300px)";
-//     Indicator.style.transform = "translateX(0px)";
-// }
+function login() {
+    regForm.style.transform = "translateX(300px)";
+    loginForm.style.transform = "translateX(300px)";
+    Indicator.style.transform = "translateX(0px)";
+}
 
 
 
@@ -672,30 +772,16 @@ function cartNumbers() {
 
 
 
-// // var productImg = document.getElementById("productImg");
-// // var smallImg = document.getElementsByClassName("small-img");
-// // smallImg[0].onclick = function(){
-// //     productImg.src =smallImg[0].src;
-// // }
-// // smallImg[1].onclick = function(){
-// //     productImg.src =smallImg[1].src;
-// // }
-// // smallImg[2].onclick = function(){
-// //     productImg.src =smallImg[2].src;
-// // }
-// // smallImg[3].onclick = function(){
-// //     productImg.src =smallImg[3].src;
-// // }
-// // cart
-// // var remove = document.getElementsByClassName("remove");
-// // // console.log(remove);
-// // for (var i = 0; i < remove.length; i++){
-// //     var remBtn = remove[i]
-// //     remBtn.addEventListener('click',function(e){
+// cart
+// var remove = document.getElementsByClassName("remove");
+// // console.log(remove);
+// for (var i = 0; i < remove.length; i++){
+//     var remBtn = remove[i]
+//     remBtn.addEventListener('click',function(e){
 
-// //         console.log("clicked")
-// //     })
-// // }  
+//         console.log("clicked")
+//     })
+// }  
 // // var removeCartItemButtons = document.getElementsByClassName('remove')
 // // for (var i = 0; i < removeCartItemButtons.length; i++) {
 // //     var button = removeCartItemButtons[i]
