@@ -15,7 +15,6 @@ body{
 svg{
     width: 49%;
     display: flex;
-    /* align-items: center; */
     
     }
     
@@ -32,12 +31,12 @@ svg{
     #J{
       stroke-dasharray: 200px;
       stroke-dashoffset: -200px;
-      animation: J-anim .75s linear .8s forwards;
+      animation: J-anim .75s linear .6s forwards;
     }
     #A{
       stroke-dasharray: 280px;
       stroke-dashoffset: -280px;
-      animation: A-anim .75s linear 1.60s forwards;
+      animation: A-anim .75s linear 1.20s forwards;
     }
     @keyframes O-anim {
       from{stroke-dashoffset: -300px;}
@@ -51,26 +50,61 @@ svg{
       from{stroke-dashoffset: -280px;}
       to{stroke-dashoffset:0px}
     }
-.logo{
-    height: 100px;
-}
+/* .logo{
+    height: 9px;
+} */
 .navbar{
     display: flex;
-    align-items: center;
     padding: 20px;
+    align-items: center;
+    
 }
-nav{
-    flex: 1;
-    text-align: right;
+.navbarItems{
+    display: flex;
+    text-decoration: none;
+    color: #555555;
 }
 nav ul{
     display: inline-block;
     list-style-type: none;
 }
-nav ul li{
-    display: inline-block;
-    margin-right: 20px;
+.navbarBrand{
+    cursor: pointer;
 }
+.navbarLink{
+    padding-right: 30px;
+    
+}
+.items-right{
+    margin-left: auto;
+}
+.navbarToggle{
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    .navbarItems,.navbar {
+        flex-direction: column;
+    }
+    .items-right {
+        margin-left: 0;
+        text-align: center;
+        display: none;
+    }
+    .navbarToggleShow{
+        display: flex;
+    }
+    .navbarToggle{
+        align-self: flex-end;
+        display: initial;
+        position: absolute;
+        cursor: pointer;
+        margin-right: 30px;
+    }
+    .navbarLink{
+        padding: 15px;
+   }   
+}
+    
 a{
     text-decoration: none;
     color: #555555;
@@ -283,37 +317,16 @@ ul{
 .credit{
     text-align: center;
 }
-.menu-icon{
-    width: 28px;
-    margin-left: 20px;
-    display: none;
-}
 
+.empty {
+    margin: auto 0;
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.25);
+  }
 /* media query menu */
-@media only screen and (max-width: 800px){
-    nav ul{
-        position: absolute;
-        top: 85px;
-        left: 0;
-        background-color: #333;
-        width: 100%;
-        overflow: hidden;
-        transition: max-height 0.5s;
-    }
-    nav ul li{
-        display: block;
-        margin-right: 50px;
-        margin-top: 20px;
-        margin-bottom: 10px;
-   }  
-   nav ul li a{
-       color: #fff;
-   } 
-   .menu-icon{
-       display: block;
-       cursor: pointer;
-   }
-}
+
 /* all product */
 .row-2{
     justify-content: space-between;
@@ -638,6 +651,7 @@ input, textarea {
     }
     .total-price{
         padding-left: 90px;
+        max-width: 30px;
     }
    .first-row{
      display: block;
@@ -645,5 +659,25 @@ input, textarea {
    #tel{
        margin-left: 0;
    }
+   .empty {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* margin-right: -50%; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center;*/
+    margin: auto 0; 
+   
+    font-size: 1rem;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.25);
    
   }
+  .total-price table{
+      width: 50%;
+      margin-left: 120px;
+   
+  }
+}

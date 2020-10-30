@@ -13,7 +13,7 @@
     <div class="header">
         <div class="container">
             <div class="navbar">
-                <div class="logo">
+                <div class="navbarBrand">
                     <a href="index.html">
                     <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="-0.9 -0.7 81.92 79.56">
                         <g id="OJA">
@@ -30,18 +30,29 @@
                       </svg>
                     </a>
                 </div>
-                <nav>
-                    <ul id="menuItems">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="product.html">Products</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="account.html">Account</a></li>
-                    </ul>
-
-                </nav>
+                    
+                    <nav class="navbarItems items-right">
+                        <div class="navbarLink">
+                            <a href="index.html">Home</a>
+                        </div>
+                        <div class="navbarLink">
+                            <a href="product.html">Products</a>
+                        </div>
+                        <div class="navbarLink">
+                            <a href="about.html">About</a>
+                        </div>
+                        <div class="navbarLink">
+                            <a href="contact.html">Contact</a>
+                        </div>
+                        <div class="navbarLink">
+                            <a href="account.html">Account</a>
+                        </div>
+                    </nav>
+                
                 <a href="cart.html"><img src="images/cart.png" width="30px" height="30px" alt=""> <span>0</span></a>
-                <img src="images/menu.png"  class="menu-icon" alt="" onclick="menutoggle()">
+                <div class="navbarToggle">
+                    <img src="images/menu.png" width="20px">
+                </div>
             </div>
             <div class="row">
                 <div class="col-2">
