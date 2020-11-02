@@ -449,7 +449,8 @@ function calcTotalProductCost(){
         }
         let inCartTotal = 0;
         for (let i =0; i < cartProductsArray.length; i++){
-            inCartTotal = inCartTotal + cartProductsArray[i].cost
+            let totalItem = cartProductsArray[i].inCart * Number(cartProductsArray[i].productCost);
+            inCartTotal += totalItem;
         }
         return inCartTotal;
     }
