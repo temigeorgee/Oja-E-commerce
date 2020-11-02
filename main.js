@@ -1,11 +1,11 @@
 //NAVBAR
 function classToggle() {
     const navs = document.querySelectorAll('.navbarItems')
-    
+
     navs.forEach(nav => nav.classList.toggle('navbarToggleShow'));
-  }
-  
-  document.querySelector('.navbarToggle').addEventListener('click', classToggle);
+}
+
+document.querySelector('.navbarToggle').addEventListener('click', classToggle);
 
 //LOGIN & REGISTER FORM
 var loginForm = document.getElementById("LoginForm");
@@ -26,7 +26,7 @@ function login() {
 // PRODUCTS
 let products = [
     {
-        id : 1,
+        id: 1,
         name: 'KOOVS Tie-Up Off Shoulder Top',
         detail: `<p> Material/Fabric :Main : Poly, Georgette/ Lining : Cotton, Lycra</p>
         <p>Size & Fit :This brand runs true to size. To ensure the best fit, we suggest consulting the size chart.</p> 
@@ -45,7 +45,7 @@ let products = [
         image_four: 'https://product.koovs.com/187x230/81981_2ea26cf01812d377e5804a9c852df704.jpg'
     },
     {
-        id : 2,
+        id: 2,
         name: 'Blue Saint Twin Patch Pocket Denim Jacket',
         detail: `<p>  Material/Fabric :100% Cotton</p>
         <p>Size & Fit :
@@ -66,7 +66,7 @@ let products = [
         image_four: 'https://product.koovs.com/187x230/155086_33b5919cf1a64a6485861ab43789142f_back_super_zoom.jpg'
     },
     {
-        id : 3,
+        id: 3,
         name: 'Blue Saint Camo Print Shacket',
         detail: `<p>  Material/Fabric :100% Cotton</p>
         <p>Size & Fit :
@@ -89,7 +89,7 @@ let products = [
         image_four: 'https://product.koovs.com/187x230/155084_8d808fbfb30043afb415a29b133c58d6_back_super_zoom.jpg'
     },
     {
-        id : 4,
+        id: 4,
         name: 'KOOVS PU Desert Boots',
         detail: `<p>Material/Fabric :PU</p>
         <p>Size & Fit :
@@ -109,7 +109,7 @@ let products = [
         image_four: 'https://product.koovs.com/131820_de5ef3f15fce51faaec96a6fe91d33cc.webp'
     },
     {
-        id : 5,
+        id: 5,
         name: 'Blue Saint Drawcord Waist Slim Trousers',
         detail: `<p>Material/Fabric :98% Cotton, 2% Lycra</p>
         <p>Size & Fit :
@@ -128,7 +128,7 @@ let products = [
         image_four: 'https://product.koovs.com/155246_0a8175f32abf4e7b994d2c06b6be3ba4_left_super_zoom.webp'
     },
     {
-        id : 6,
+        id: 6,
         name: 'Blue Saint Basic Raw Edge T-Shirt',
         detail: `<p>Material/Fabric :100% Cotton</p>
         <p>Size & Fit :
@@ -146,8 +146,8 @@ let products = [
         image_three: 'https://product.koovs.com/155190_6f19357f5fb24f0d9fdc477fc3106e5a_back_super_zoom.webpp',
         image_four: 'https://product.koovs.com/131820_de5ef3f15fce51faaec96a6fe91d33cc.webphttps://product.koovs.com/155190_6f19357f5fb24f0d9fdc477fc3106e5a_left_super_zoom.webp'
     },
-       {
-        id : 7,
+    {
+        id: 7,
         name: 'REALM Utility Cargo Pockets Slim Trousers',
         detail: `<p>Material/Fabric :100% Cotton</p>
         <p>Size & Fit :
@@ -167,7 +167,7 @@ let products = [
         image_four: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp',
     },
     {
-        id : 8,
+        id: 8,
         name: 'Blue Saint Contrast Collar Embroidered Slim Shirt',
         detail: `<p>Material/Fabric :100% Cotton</p>
         <p>Size & Fit :
@@ -188,7 +188,7 @@ let products = [
         image_four: 'https://product.koovs.com/155654_a38d2a34bb7c41fa976eae46011679c3_left_super_zoom.webp',
     },
     {
-        id : 9,
+        id: 9,
         name: 'THE SHRINE ( UV & GLOW IN THE DARK)',
         detail: `<p>Material/Fabric :100% Cotton Biowash (180GSM)</p>
         <p>Size & Fit :
@@ -206,7 +206,7 @@ let products = [
         image_four: 'https://cdn.shopify.com/s/files/1/0073/8790/6130/products/ArtBlotMen_sBlackGlowInDarkgraphicartT-shirt_TheShrine_frontview_1800x1800.jpg?v=1594547551',
     },
     {
-        id : 10,
+        id: 10,
         name: 'NEW H&M SOLID PLUS SIZE SHIRT',
         detail: `<p>Material/Fabric :100% Cotton</p>
         <p>Size & Fit :
@@ -223,7 +223,7 @@ let products = [
         image_four: 'https://dexstitches.com/image/cache/catalog/1131-1080x1440.jpg',
     },
     {
-        id : 11,
+        id: 11,
         name: 'Men Black Full Length Jogger Track',
         detail: `<p>Material/Fabric : Cotton Polyester</p>
         <p>Size & Fit :
@@ -240,7 +240,7 @@ let products = [
         image_four: 'https://www.allonlinestore.in/media/product/68/73/13-wishlist.jpg',
     },
     {
-        id : 12,
+        id: 12,
         name: 'Blue Saint Aqua Blue Short Sleeves Slim Fit Shirt',
         detail: `<p>Material/Fabric :100% Viscose</p>
         <p>Size & Fit :
@@ -265,14 +265,15 @@ let products = [
 
 // Display all prodects on screen
 function addAllProducts() {
-    let productList = document.getElementById("product-list");
+    let $productList = $("#product-list");
 
-    products.forEach((item)=>{
-        var div = document.createElement("div");
-        div.classList.add("col-4");
-        div.innerHTML = `
-        <a><img src="${item.image_one}" onclick="toPoductDetials(${item.id})"></a>
-            <a href="product-details.html"><h4>${item.name}</h4></a>
+    products.forEach((item) => {
+        var $div = $("<div>");
+        $div.addClass("col-4");
+
+        $div.html(`
+        <a><img src="${item.image_one}"></a>
+            <a href="product-details.html"><h4 id=${item.id}>${item.name}</h4></a>
         <div class="rating">
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
@@ -280,69 +281,328 @@ function addAllProducts() {
             <i class="fa fa-star"></i>
             <i class="fa fa-star-o"></i>
         </div>
-        <p>$${item.cost}.00</p><span><a href="#" class="btn add-cart" onclick="addToCart(${item.id})">Add to Cart</a></span>
-    `
-    productList.append(div)
-
+        <p>$${item.cost}.00</p><span><a href="#" class="btn add-cart clicker" id="mySelectedItem">Add to Cart</a></span>
+    `);
+        $productList.append($div)
     });
 
+    // HANDLNG THE SELECTED ITEM
+    let $selectedItem = $('.clicker');
+
+    $selectedItem.each(function (i, item) {
+        $(item).on("click", function (e) {
+            e.preventDefault();
+            let productId = $(item).parent().prev().prev().prev().find('h4').attr('id');
+            let productName = $(item).parent().prev().prev().prev().find('h4').text();
+            let productCost = $(item).parent().prev().html();
+            let productImage = $(item).parent().prev().prev().prev().prev().find('img').attr('src');
+
+            let transformCost = productCost.split("").slice(1).join("");
+
+            var product = new Product(productId, productName, transformCost, productImage);
+
+            Store.addProduct(product, productId);
+            $(item).text('Added to Cart!');
+        })
+    })
+
 }
 
-// Redirect to product details
-function toPoductDetials(item) {
-    localStorage.setItem("selectedProduct", item);
-    window.location.replace("/product-details.html");
-}
+
+// INSERT ALL PRODUCTS TO PAGE
 addAllProducts();
 
-function CartIsEmpty() {
-    let emptyCart = `<span class='empty-cart'>Looks Like You Haven't Added Any Product In The Cart</span>`;
-    if (cartDetails.length == 0) {
-      document.getElementsByClassName("cart-items")[0].innerHTML = emptyCart;
+// Product Class Declaration
+class Product {
+    constructor(productID, productName, productCost, productImage) {
+        this.productID = productID,
+        this.productName = productName,
+        this.productCost = productCost,
+        this.productImage = productImage,
+        this.inCart = 1
     }
-  }
-function addToCart(item) {
-    cartNumbers();
-    let cartItems = localStorage.getItem('cartItems');
-    if (cartItems) {
-        let newCartItems = JSON.parse(cartItems);
-        console.log(newCartItems)
-        if (newCartItems.includes(item - 1)){
-            return
+};
+
+// Store Class: To Handle My storage
+class Store {
+    static getProducts() {
+        let products;
+        if (localStorage.getItem('cart') === null) {
+            products = [];
         } else {
-            newCartItems.push(item)
-            localStorage.setItem('cartItems', JSON.stringify(newCartItems));
+            products = JSON.parse(localStorage.getItem('cart'));
+        }
+        return products;
+    };
+
+    static addProduct(product, id) {
+        const products = Store.getProducts();
+
+        // If the array is empty, create new one
+        if (products.length === 0) {
+            products.push(product);
+
+            localStorage.setItem('cart', JSON.stringify(products));
+            console.log('I ran')
+        } else if (products.length >= 1) {
+            // Check if it exists and add appropraite 
+            var index = products.findIndex(x => x.productID == id);
+
+            if (index === -1){
+                products.push(product);
+                localStorage.setItem('cart', JSON.stringify(products));
+            } else {
+                return
+            }
+        }
+
+    };
+
+    static modifyProduct(id) {
+        const products = Store.getProducts();
+
+        products.forEach((product, index) => {
+            if (product.productID == id) {
+                ++product.inCart;
+            }
+        });
+        localStorage.setItem('cart', JSON.stringify(products));
+    };
+
+    static deleteIssue($el) {
+        const issues = Store.getIssues();
+
+        if ($el.hasClass('delete')) {
+            let element = $el.parent().prev().prev().prev().prev().attr('id');
+            issues.forEach((issue, index) => {
+                if (issue.issueID == element) {
+                    issues.splice(index, 1);
+                }
+            });
+            localStorage.setItem('issues', JSON.stringify(issues));
+        }
+    };
+};
+
+
+
+// Display on cart
+function displayCart() {
+    let cartItems = Store.getProducts();
+    
+
+    if (cartItems) {
+        for (let item in cartItems) {
+            attachCartItems(cartItems[item]);
+            // console.log('Carrrt items : ', cartItems[item]);
         }
     } else {
-        let upCartItems = [ ];
-        upCartItems.push(item)
-        console.log(upCartItems)
-        localStorage.setItem('cartItems', JSON.stringify(upCartItems))
-    }
-
-
-}
-
-function cartNumbers() {
-    let productNumbers = localStorage.getItem('cartNumbers')
-
-    productNumbers = parseInt(productNumbers)
-    if (productNumbers) {
-        localStorage.setItem('cartNumbers', productNumbers + 1);
-        document.querySelector("a span").textContent = productNumbers + 1;
-    } else {
-        localStorage.setItem('cartNumbers', 1);
-        document.querySelector("a span").textContent = 1;
+        attachEmptyCartItem()
     }
 }
 
-// let subCart = []
+function attachCartItems(item) {
+    let $cartHead = $(".cart-head");
+    var $tr = $("<tr>");
+    $tr.html(`
+    <td class="cart-body">
+        <div class="cart-info">
+            <img src="${item.productImage}" alt="">
+            <div>
+                <p>${item.productName}</p>
+                <small>Price:$${item.productCost}</small>
+                <br>
+                <a href="" class="remove">Remove</a>
+            </div>
+        </div>
+    </td>
+    <td> <input type="number" value=${item.inCart}></td>
+    <td>$${item.inCart * item.productCost}.00</td>
+    `);
+    $cartHead.append($tr);
+    // totalProductCost();
+}
 
-// function addToCart(itemId){
-//     subCart.push(itemId -1)
+
+function attachEmptyCartItem() {
+    let $cartHead = $(".cart-head");
+    var $tr = $("<tr>");
+    $tr.html(`
+    <div class = "empty">
+    <img src="https://prod-banner.brandfactoryonline.com/uploads/fg/empty_bag.png" width="30%">
+     <p>Looks Like You Haven't Added Any Product In The Cart</p>
+     </div>`);
+    $cartHead.append($tr);
+}
+
+displayCart();
+
+
+function calcTotalProductCost(){
+    let currentItems = Store.getProducts();
+
+    if (currentItems) {
+
+        let cartProductsArray = []
+        for (let item in currentItems) {
+            cartProductsArray.push(currentItems[item])
+        }
+        let inCartTotal = 0;
+        for (let i =0; i < cartProductsArray.length; i++){
+            inCartTotal = inCartTotal + cartProductsArray[i].cost
+        }
+        return inCartTotal;
+    }
+    else{
+        return 0
+    }
+}
+
+
+
+// set total product cost
+let taxFactor = 0.2;
+function totalProductCost(){
+    var div = document.createElement("div");
+    let cartCost = calcTotalProductCost();
+    let cartPage = document.querySelector("#tots");
+    let tax = cartCost * taxFactor;
+    let total = parseInt(tax) + parseInt(cartCost)
+    div.classList.add("col-2", "total-price");
+   div.innerHTML = `
+                <table>
+                    <tr>
+                        <td>Subtotal</td>
+                        <td>$${cartCost}.00</td>
+                    </tr>
+                    <tr>
+                        <td>Tax</td>
+                        <td>$${tax}.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>$${total}.00</td>
+                    </tr>
+                </table>`;
+    cartPage.append(div);
+ 
+}
+
+totalProductCost();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Redirect to product details
+// function toPoductDetials(item) {
+//     localStorage.setItem("selectedProduct", item);
+//     window.location.replace("/product-details.html");
+// }
+// addAllProducts();
+
+// function CartIsEmpty() {
+//     let emptyCart = `<span class='empty-cart'>Looks Like You Haven't Added Any Product In The Cart</span>`;
+//     if (cartDetails.length == 0) {
+//         document.getElementsByClassName("cart-items")[0].innerHTML = emptyCart;
+//     }
+// }
+// function addToCart(item) {
 //     cartNumbers();
+//     let cartItems = localStorage.getItem('cartItems');
+//     if (cartItems) {
+//         let newCartItems = JSON.parse(cartItems);
+//         console.log(newCartItems)
+//         if (newCartItems.includes(item - 1)) {
+//             return
+//         } else {
+//             newCartItems.push(item)
+//             localStorage.setItem('cartItems', JSON.stringify(newCartItems));
+//         }
+//     } else {
+//         let upCartItems = [];
+//         upCartItems.push(item)
+//         console.log(upCartItems)
+//         localStorage.setItem('cartItems', JSON.stringify(upCartItems))
+//     }
+
 
 // }
+
+// function cartNumbers() {
+//     let productNumbers = localStorage.getItem('cartNumbers')
+
+//     productNumbers = parseInt(productNumbers)
+//     if (productNumbers) {
+//         localStorage.setItem('cartNumbers', productNumbers + 1);
+//         document.querySelector("a span").textContent = productNumbers + 1;
+//     } else {
+//         localStorage.setItem('cartNumbers', 1);
+//         document.querySelector("a span").textContent = 1;
+//     }
+// }
+
+// // let subCart = []
+
+// // function addToCart(itemId){
+// //     subCart.push(itemId -1)
+// //     cartNumbers();
+
+// // }
 
 
 
@@ -487,7 +747,7 @@ function cartNumbers() {
 // function toPoductDetials(item) {
 //     localStorage.setItem("selectedProduct", item);
 //     selectedProduct.push(item)
- 
+
 // }
 
 // addAllProducts();
@@ -733,7 +993,7 @@ function cartNumbers() {
 // //         productContainer.innerHTML ='';
 // //         Object.values(cartItems).map(item =>{
 // //              productContainer.innerHTML += `
-            
+
 // //              <td>
 // //         <div class="cart-info">
 // //             <img src="images/${item.tag}.jpg" alt="">
