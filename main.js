@@ -358,15 +358,17 @@ class Store {
 
     };
 
-    static modifyProduct(id) {
+    static modifyProduct($el) {
         const products = Store.getProducts();
 
-        products.forEach((product, index) => {
-            if (product.productID == id) {
-                ++product.inCart;
-            }
-        });
-        localStorage.setItem('cart', JSON.stringify(products));
+        $el.on('mouseleave')
+
+        // products.forEach((product, index) => {
+        //     if (product.productID == id) {
+        //         ++product.inCart;
+        //     }
+        // });
+        // localStorage.setItem('cart', JSON.stringify(products));
     };
 
     static deleteProduct($el) {
@@ -500,6 +502,7 @@ function calcInCart(){
 
     var allItemsInCart = products.map(product => product.inCart).reduce((a, b) => a + b, 0);
 
+    // Attach to cart icon
     let $myCart = $('#theCart');
 
     $myCart.text(allItemsInCart);
@@ -508,23 +511,17 @@ function calcInCart(){
 calcInCart();
 
 
-
-// Implement increment of inCart once the amount of items is increased
-var $quantity = $(".incre");
-
-$quantity.each((i, item) => {
-    $(item).on('mouseleave', (e) => {
-        // console.log($(".incre").val());
-    })
-})
-
-
 // DELETE a product in cart
 var $tableBody = $('tbody');
 
 $tableBody.on('click', (e) => {
     Store.deleteProduct($(e.target));
-})
+
+    // Implement increment of inCart once the amount of items is increased
+    Store.modifyProduct($(e.target));
+    // console.log(e.target)
+});
+
 
 
 
