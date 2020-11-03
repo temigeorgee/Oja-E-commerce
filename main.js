@@ -369,17 +369,18 @@ class Store {
         localStorage.setItem('cart', JSON.stringify(products));
     };
 
-    static deleteIssue($el) {
-        const issues = Store.getIssues();
+    static deleteProduct($el) {
+        const products = Store.getProducts();
 
-        if ($el.hasClass('delete')) {
-            let element = $el.parent().prev().prev().prev().prev().attr('id');
-            issues.forEach((issue, index) => {
-                if (issue.issueID == element) {
-                    issues.splice(index, 1);
+        if ($el.hasClass('remove')) {
+            let element = $el.parent().parent().parent().attr('id');
+            
+            products.forEach((product, index) => {
+                if (product.productID == element) {
+                    products.splice(index, 1);
                 }
             });
-            localStorage.setItem('issues', JSON.stringify(issues));
+            localStorage.setItem('cart', JSON.stringify(products));
         }
     };
 };
@@ -405,18 +406,18 @@ function attachCartItems(item) {
     let $cartHead = $(".cart-head");
     var $tr = $("<tr>");
     $tr.html(`
-    <td class="cart-body">
+    <td class="cart-body" id=${item.productID}>
         <div class="cart-info">
             <img src="${item.productImage}" alt="">
             <div>
                 <p>${item.productName}</p>
                 <small>Price:$${item.productCost}</small>
                 <br>
-                <a href="" class="remove">Remove</a>
+                <a href="" class="remove" >Remove</a>
             </div>
         </div>
     </td>
-    <td> <input type="number" value=${item.inCart}></td>
+    <td> <input type="number" value=${item.inCart} class="incre"></td>
     <td>$${item.inCart * item.productCost}.00</td>
     `);
     $cartHead.append($tr);
@@ -464,13 +465,13 @@ function calcTotalProductCost(){
 // set total product cost
 let taxFactor = 0.2;
 function totalProductCost(){
-    var div = document.createElement("div");
+    var $div = $("<div>");
     let cartCost = calcTotalProductCost();
-    let cartPage = document.querySelector("#tots");
+    let $cartPage = $("#tots");
     let tax = cartCost * taxFactor;
     let total = parseInt(tax) + parseInt(cartCost)
-    div.classList.add("col-2", "total-price");
-   div.innerHTML = `
+    $div.addClass("col-2 total-price");
+    $div.html(`
                 <table>
                     <tr>
                         <td>Subtotal</td>
@@ -484,25 +485,46 @@ function totalProductCost(){
                         <td>Total</td>
                         <td>$${total}.00</td>
                     </tr>
-                </table>`;
-    cartPage.append(div);
+                </table>`);
+    $cartPage.append($div);
  
 }
 
 totalProductCost();
 
 
+// UPDATE THE CART
+
+function calcInCart(){
+    let products = Store.getProducts();
+
+    var allItemsInCart = products.map(product => product.inCart).reduce((a, b) => a + b, 0);
+
+    let $myCart = $('#theCart');
+
+    $myCart.text(allItemsInCart);
+}
+
+calcInCart();
 
 
 
+// Implement increment of inCart once the amount of items is increased
+var $quantity = $(".incre");
+
+$quantity.each((i, item) => {
+    $(item).on('mouseleave', (e) => {
+        // console.log($(".incre").val());
+    })
+})
 
 
+// DELETE a product in cart
+var $tableBody = $('tbody');
 
-
-
-
-
-
+$tableBody.on('click', (e) => {
+    Store.deleteProduct($(e.target));
+})
 
 
 
