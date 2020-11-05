@@ -548,7 +548,7 @@ function productDetailsCreator(e) {
 
             localStorage.setItem('product', JSON.stringify(selectedProduct));
 
-            window.location.href = "product-details.html";
+            window.location.href = "/html/product/product-details.html";
 
             
         }
