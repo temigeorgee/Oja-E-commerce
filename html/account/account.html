@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width = device-width, initial-scale=1.0">
     <title>Oja</title>
+    <link rel="icon" href="/assets/images/4.png" type="icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/style.css">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
     <div class="container">
         <div class="navbar">
             <div class="navbarBrand">
-                <a href="index.html">
+                <a href="/html/index.html">
                 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="-0.9 -0.7 81.92 79.56">
                     <g id="OJA">
                       <path id="O"
@@ -31,51 +32,60 @@
                 </a>
             </div>
                 
-                <nav class="navbarItems items-right">
-                    <div class="navbarLink">
-                        <a href="index.html">Home</a>
-                    </div>
-                    <div class="navbarLink">
-                        <a href="product.html">Products</a>
-                    </div>
-                    <div class="navbarLink">
-                        <a href="about.html">About</a>
-                    </div>
-                    <div class="navbarLink">
-                        <a href="contact.html">Contact</a>
-                    </div>
-                    <div class="navbarLink">
-                        <a href="account.html">Account</a>
-                    </div>
-                </nav>
+            <nav class="navbarItems items-right">
+                <div class="navbarLink">
+                    <a href="/html/index.html">Home</a>
+                </div>
+                <div class="navbarLink">
+                    <a href="/html/product/product.html">Products</a>
+                </div>
+                <div class="navbarLink">
+                    <a href="/html/about/about.html">About</a>
+                </div>
+                <div class="navbarLink">
+                    <a href="/html/contact/contact.html">Contact</a>
+                </div>
+                <div class="navbarLink">
+                    <a href="/html/account/account.html">Account</a>
+                </div>
+            </nav>
             
-            <a href="cart.html" class="basket" ><img src="images/cart.png" width="30px" height="30px" alt=""> <span id="theCart">0</span></a>
+            <a href="/html/cart/cart.html" class="basket" ><img src="/assets/images/cart.png" width="30px" height="30px" alt=""> <span  id="theCart">0</span></a>            
             <div class="navbarToggle">
-                <img src="images/menu.png" width="20px">
+                <img src="/assets/images/menu.png" width="20px">
             </div>
         </div>
     </div>
 
-    <!-- contact page -->
+    <!-- account page -->
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <lottie-player src="https://assets3.lottiefiles.com/private_files/lf30_inPNOM.json"  background="transparent"  speed="2.5"  style="width: 100%;  height: 100%;" autoplay></lottie-player>
+                </div>
+                <div class="col-2">
+                   <div class="form-container">
+                       <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <hr id="Indicator">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-2">
-                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_yIZkqk.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>
-
-            </div>
-            <div class="col-2">
-                <h2 class="About-title">About<span class="outlined"> Us</span></h2>
-                <p class="About-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam reprehenderit hic odio tenetur, nam
-                    sit quam maxime unde doloribus ut corporis repudiandae illo. Deserunt blanditiis error cumque dolore eum
-                    facere?Ea vitae quisquam, deserunt cum cupiditate quaerat iusto tempora nostrum sit quam velit
-                    blanditiis dolorum expedita eligendi veritatis rem cumque. Aspernatur voluptas officiis itaque deleniti
-                    cupiditate omnis at a iure!
-                    <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt veritatis ea nobis, ab dolorum quae delectus, possimus praesentium animi expedita officiis temporibus nostrum esse eius. Doloribus mollitia veritatis laboriosam voluptatem!Expedita, voluptates assumenda ex obcaecati cupiditate soluta iure ipsam est at aliquam quas! Exercitationem tempora natus dolore nam dolor cumque sapiente sunt inventore esse, id magni sequi. Amet, minus omnis!
-                </p>
-               
+                       </div>
+                      <form id="LoginForm">
+                          <input type="text" placeholder="Username">
+                          <input type="password" placeholder="Password" >
+                          <button type="submit" class="btn" >Login</button>
+                          <a href="">Forgot password</a>
+                        </form>
+                        <form id="RegistrationForm">
+                            <input type="text" placeholder="Username">
+                            <input type="email" placeholder="Email">
+                            <input type="password" placeholder="Password">
+                            <button type="submit" class="btn" >Register</button>
+                          </form>
+                   </div>
+                </div>
             </div>
         </div>
     </div>
@@ -89,19 +99,18 @@
                     </h3>
                     <p>Download our app for ios and Andorid mobile phones</p>
                     <div class="app-logo">
-                        <img src="images/app-store.png" alt="">
-                        <img src="images/play-store.png" alt="">
+                        <img src="/assets/images/app-store.png" alt="">
+                        <img src="/assets/images/play-store.png" alt="">
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="images/4.png" alt="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus id quas corporis cumque a ea
-                        vitae libero minus ratione vel perferendis ipsam, placeat maxime assumenda unde temporibus,
-                        error architecto ut.</p>
+                    
+                    <img src="/assets/images/4.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus id quas corporis cumque a ea vitae libero minus ratione vel perferendis ipsam, placeat maxime assumenda unde temporibus, error architecto ut.</p>
                 </div>
                 <div class="footer-col-3">
                     <h3>
-                        Useful Links
+                       Useful Links
                     </h3>
                     <ul>
                         <li>Coupons</li>
@@ -112,7 +121,7 @@
                 </div>
                 <div class="footer-col-4">
                     <h3>
-                        follow us
+                       follow us
                     </h3>
                     <ul>
                         <li>Facebook</li>
@@ -124,13 +133,11 @@
             </div>
             <hr>
             <p class="credit">Desgined by Teecup</p>
-        </div>   
+        </div>
     </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
-        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
-        <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="/assets/js/main.js"></script>
 
 </body>
 
