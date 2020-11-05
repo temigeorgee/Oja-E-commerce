@@ -272,8 +272,8 @@ function addAllProducts() {
         $div.addClass("col-4");
 
         $div.html(`
-        <a><img src="${item.image_one}"></a>
-            <a href="product-details.html"><h4 id=${item.id}>${item.name}</h4></a>
+        <a><img src="${item.image_one}" class="myPrdImg"></a>
+        <a href="#"><h4 id=${item.id} class="myPrd">${item.name}</h4></a>
         <div class="rating">
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
@@ -316,10 +316,10 @@ addAllProducts();
 class Product {
     constructor(productID, productName, productCost, productImage) {
         this.productID = productID,
-        this.productName = productName,
-        this.productCost = productCost,
-        this.productImage = productImage,
-        this.inCart = 1
+            this.productName = productName,
+            this.productCost = productCost,
+            this.productImage = productImage,
+            this.inCart = 1
     }
 };
 
@@ -343,12 +343,11 @@ class Store {
             products.push(product);
 
             localStorage.setItem('cart', JSON.stringify(products));
-            console.log('I ran')
         } else if (products.length >= 1) {
             // Check if it exists and add appropraite 
             var index = products.findIndex(x => x.productID == id);
 
-            if (index === -1){
+            if (index === -1) {
                 products.push(product);
                 localStorage.setItem('cart', JSON.stringify(products));
             } else {
@@ -376,7 +375,7 @@ class Store {
 
         if ($el.hasClass('remove')) {
             let element = $el.parent().parent().parent().attr('id');
-            
+
             products.forEach((product, index) => {
                 if (product.productID == element) {
                     products.splice(index, 1);
@@ -389,24 +388,23 @@ class Store {
 
 
 
+
 // Display on cart
+
 function displayCart() {
     let cartItems = Store.getProducts();
-    
-
-    if (cartItems) {
+    if (cartItems.length >= 1) {
         for (let item in cartItems) {
             attachCartItems(cartItems[item]);
-            // console.log('Carrrt items : ', cartItems[item]);
         }
-    } else {
+    } else if (cartItems.length == 0) {
+        
         attachEmptyCartItem()
     }
 }
-
 function attachCartItems(item) {
-    let $cartHead = $(".cart-head");
-    var $tr = $("<tr>");
+    let $cartMainBody = $(".cart-mainBody");
+    let $tr = $("<tr>");
     $tr.html(`
     <td class="cart-body" id=${item.productID}>
         <div class="cart-info">
@@ -415,33 +413,36 @@ function attachCartItems(item) {
                 <p>${item.productName}</p>
                 <small>Price:$${item.productCost}</small>
                 <br>
-                <a href="" class="remove" >Remove</a>
+                <a href="" class="remove">Remove</a>
             </div>
         </div>
     </td>
     <td> <input type="number" value=${item.inCart} class="incre"></td>
     <td>$${item.inCart * item.productCost}.00</td>
     `);
-    $cartHead.append($tr);
+    $cartMainBody.append($tr);
     // totalProductCost();
 }
 
 
+
 function attachEmptyCartItem() {
-    let $cartHead = $(".cart-head");
-    var $tr = $("<tr>");
+    let $cartMainBody= $(".cart-mainBody");
+    // console.log('Carrrt items : ', cartItems[item]);
+    let $tr = $("<tr>");
     $tr.html(`
     <div class = "empty">
-    <img src="https://prod-banner.brandfactoryonline.com/uploads/fg/empty_bag.png" width="30%">
+    <lottie-player src="https://assets8.lottiefiles.com/datafiles/hYQRPx1PLaUw8znMhjLq2LdMbklnAwVSqzrkB4wG/bag_error.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
      <p>Looks Like You Haven't Added Any Product In The Cart</p>
      </div>`);
-    $cartHead.append($tr);
+     $cartMainBody.append($tr);
+     console.log($tr)
 }
-
+// console.log('Carrrt items : ', cartItems[item]);
 displayCart();
 
 
-function calcTotalProductCost(){
+function calcTotalProductCost() {
     let currentItems = Store.getProducts();
 
     if (currentItems) {
@@ -451,13 +452,13 @@ function calcTotalProductCost(){
             cartProductsArray.push(currentItems[item])
         }
         let inCartTotal = 0;
-        for (let i =0; i < cartProductsArray.length; i++){
+        for (let i = 0; i < cartProductsArray.length; i++) {
             let totalItem = cartProductsArray[i].inCart * Number(cartProductsArray[i].productCost);
             inCartTotal += totalItem;
         }
         return inCartTotal;
     }
-    else{
+    else {
         return 0
     }
 }
@@ -466,7 +467,7 @@ function calcTotalProductCost(){
 
 // set total product cost
 let taxFactor = 0.2;
-function totalProductCost(){
+function totalProductCost() {
     var $div = $("<div>");
     let cartCost = calcTotalProductCost();
     let $cartPage = $("#tots");
@@ -489,7 +490,7 @@ function totalProductCost(){
                     </tr>
                 </table>`);
     $cartPage.append($div);
- 
+
 }
 
 totalProductCost();
@@ -497,7 +498,7 @@ totalProductCost();
 
 // UPDATE THE CART
 
-function calcInCart(){
+function calcInCart() {
     let products = Store.getProducts();
 
     var allItemsInCart = products.map(product => product.inCart).reduce((a, b) => a + b, 0);
@@ -523,16 +524,105 @@ $tableBody.on('click', (e) => {
 });
 
 
+// ======================================== PRODUCT DETAILS SCRIPTS =============================================
+let $productList = $("#product-list");
+
+$productList.on('click', (e) => {
+    // console.log(e.target);
+    e.preventDefault();
+    productDetailsCreator(e.target);
+});
 
 
 
+// ===================================== CREATE THE PRODUCT DETAILS ===========================================
+function productDetailsCreator(e) {
+    localStorage.removeItem("product");
+    if ($(e).hasClass('myPrd')) {
+
+        let element = $(e).attr('id');
+        var index = products.findIndex(x => x.id == element);
+
+        if (index != -1) {
+            let selectedProduct = products[index];
+
+            localStorage.setItem('product', JSON.stringify(selectedProduct));
+
+            window.location.href = "product-details.html";
+
+            
+        }
+    } else if ($(e).hasClass('myPrdImg')) {
+        let element = $(e).parent().next().find('h4').attr('id');
+        var index = products.findIndex(x => x.id == element);
+
+        if (index != -1) {
+            let selectedProduct = products[index];
+
+            localStorage.setItem('product', JSON.stringify(selectedProduct));
+
+            window.location.href = "product-details.html";
+        }
+    }
+}
 
 
+// ======================================= ATTACH THE PRODUCT DETALS ==============================
 
+displayProductDetails();
 
+function displayProductDetails() {
+    // let selectedProductId = localStorage.getItem("selectedProduct");
+    let selectedProduct = JSON.parse(localStorage.getItem('product'));
 
+    // let selectedProduct = products[selectedProductId - 1]
+    // console.log(selectedProduct)
 
+    let $productList = $("#product-details");
+    var $div = $("<div>");
+    $div.addClass("row");
+    $div.html(`
+        <div class="row">
+            <div class="col-2">
+                <img src="${selectedProduct.image_one}" width="100%"  id="productImg">
+                <div class="small-img-row">
+                    <div class="small-img-col">
+                        <img src="${selectedProduct.image_two}" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="${selectedProduct.image_three}" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="${selectedProduct.image_four}"  width="100%"class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="${selectedProduct.image_one}"width="100%" class="small-img">
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <p>Home/T-shirt</p>
+                <h1>${selectedProduct.name}</h1>
+                <h4>$${selectedProduct.cost}.00</h4>
+                <select>
+                   <option value="">Select Size</option>
+                   <option value="">XXL</option>
+                   <option value="">XL</option>
+                   <option value="">L</option>
+                   <option value="">M</option>
+                   <option value="">S</option>
+                </select>
+                <input type="number" value="1">
+                <a href="" class="btn">Add To Cart</a>
+                <h3>Product Details <i class="fa fa-indent"></i></h3>
+                <p>${selectedProduct.detail}</p>
+            </div>
+        </div>
+    `);
 
+    $productList.append($div)
+
+}
 
 
 
