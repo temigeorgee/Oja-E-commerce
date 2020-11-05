@@ -644,7 +644,7 @@ input, textarea {
     left: 50%;
     transform: translateX(-50%);
 }
-
+/* 
 @media only screen and (max-width: 1024px){
     svg{
    
@@ -666,7 +666,7 @@ input, textarea {
         
     }
   
-}
+} */
 
 
 
@@ -719,9 +719,9 @@ input, textarea {
     box-sizing: border-box;
   }
   .empty lottie-player{
-     height: 100px;
-     width: 200px !important;
-     margin-left: 50px;
+     height: 100px !important;
+     width: 100px !important;
+     margin-left: 100px;
   }
   .total-price{
     padding-left: 40px;
