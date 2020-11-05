@@ -48,7 +48,7 @@
                     </div>
                 </nav>
             
-            <a href="cart.html"><img src="images/cart.png" width="30px" height="30px" alt=""> <span id="theCart">0</span></a>
+            <a href="cart.html" class="basket" ><img src="images/cart.png" width="30px" height="30px" alt=""> <span id="theCart">0</span></a>
             <div class="navbarToggle">
                 <img src="images/menu.png" width="20px">
             </div>
@@ -186,78 +186,25 @@
             <p class="credit">Desgined by Teecup</p>
         </div>
     </div>
+    
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="main.js"></script>
+    <script>
+        var productImg = document.getElementById("productImg");
+        var smallImg = document.getElementsByClassName("small-img");
+        smallImg[0].onclick = function(){
+            productImg.src =smallImg[0].src;
+        }
+        smallImg[1].onclick = function(){
+            productImg.src =smallImg[1].src;
+        }
+        smallImg[2].onclick = function(){
+            productImg.src =smallImg[2].src;
+        }
+        smallImg[3].onclick = function(){
+            productImg.src =smallImg[3].src;
+}
+    </script>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
-<script>
-    displayProductDetails() 
-    function displayProductDetails() {
-    let selectedProductId = localStorage.getItem("selectedProduct");
-
-    let selectedProduct = products[selectedProductId - 1]
-    console.log(selectedProduct)
-
-    let productList = document.getElementById("product-details");   
-        var div = document.createElement("div");
-        div.classList.add("row");
-        div.innerHTML = `
-        <div class="row">
-            <div class="col-2">
-                <img src="${selectedProduct.image_one}" width="100%"  id="productImg">
-                <div class="small-img-row">
-                    <div class="small-img-col">
-                        <img src="${selectedProduct.image_two}" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="${selectedProduct.image_three}" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="${selectedProduct.image_four}"  width="100%"class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="${selectedProduct.image_one}"width="100%" class="small-img">
-                    </div>
-                </div>
-            </div>
-            <div class="col-2">
-                <p>Home/T-shirt</p>
-                <h1>${selectedProduct.name}</h1>
-                <h4>$${selectedProduct.cost}.00</h4>
-                <select>
-                   <option value="">Select Size</option>
-                   <option value="">XXL</option>
-                   <option value="">XL</option>
-                   <option value="">L</option>
-                   <option value="">M</option>
-                   <option value="">S</option>
-                </select>
-                <input type="number" value="1">
-                <a href="" class="btn">Add To Cart</a>
-                <h3>Product Details <i class="fa fa-indent"></i></h3>
-                <p>${selectedProduct.detail}</p>
-            </div>
-        </div>
-    `
-
-    productList.append(div)
-
-}
-
-var productImg = document.getElementById("productImg");
-var smallImg = document.getElementsByClassName("small-img");
-smallImg[0].onclick = function(){
-    productImg.src =smallImg[0].src;
-}
-smallImg[1].onclick = function(){
-    productImg.src =smallImg[1].src;
-}
-smallImg[2].onclick = function(){
-    productImg.src =smallImg[2].src;
-}
-smallImg[3].onclick = function(){
-    productImg.src =smallImg[3].src;
-}
-</script>
 </html> 
