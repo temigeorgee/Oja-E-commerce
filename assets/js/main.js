@@ -303,6 +303,7 @@ function addAllProducts() {
 
             Store.addProduct(product, productId);
             $(item).text('Added to Cart!');
+            window.location.reload(1);
         })
     })
 
