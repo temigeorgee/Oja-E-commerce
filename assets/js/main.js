@@ -37,7 +37,7 @@ let products = [
         Sheer style,
         Long fluted Sleeves,
         Regular fit.</p>`,
-        cost: 20,
+        cost: 2900,
         inCart: 1,
         image_one: 'https://product.koovs.com/81981_57e16385de0cd38cefb03dd4604310e5.webp',
         image_two: 'https://product.koovs.com/81981_76e9db1e07d8bae7534bd2d2cb01d0c0.webp',
@@ -58,7 +58,7 @@ let products = [
         Four pockets,
         Long sleeves, 
         Slim fit.</p>`,
-        cost: 20,
+        cost: 1020,
         inCart: 1,
         image_one: 'https://product.koovs.com/155086_33b5919cf1a64a6485861ab43789142f_left_super_zoom.webp',
         image_two: 'https://product.koovs.com/155086_33b5919cf1a64a6485861ab43789142f_left_super_zoom.webp',
@@ -81,7 +81,7 @@ let products = [
         Twin patch pockets 
         Long sleeves with cuffs
         Regular fit .</p>`,
-        cost: 20,
+        cost: 5320,
         inCart: 1,
         image_one: 'https://product.koovs.com/155084_8d808fbfb30043afb415a29b133c58d6_image1_super_zoom.webp',
         image_two: 'https://product.koovs.com/155084_8d808fbfb30043afb415a29b133c58d6_front_super_zoom.webp',
@@ -101,7 +101,7 @@ let products = [
         Lace-up closure
         Mid-top design
         Raised sole</p>`,
-        cost: 20,
+        cost: 2009,
         inCart: 1,
         image_one: 'https://product.koovs.com/131820_4889c1f558d8ded2d1f34c3cd8646fa8.webp',
         image_two: 'https://product.koovs.com/131820_b9d1a2134d3b79312649b1ea0cb37865.webp',
@@ -120,7 +120,7 @@ let products = [
         Elasticated waist with drawcord,
         Three pockets,
         Slim fit.</p>`,
-        cost: 20,
+        cost: 2500,
         inCart: 1,
         image_one: 'https://product.koovs.com/155246_0a8175f32abf4e7b994d2c06b6be3ba4_image1_super_zoom.webp',
         image_two: 'https://product.koovs.com/155246_0a8175f32abf4e7b994d2c06b6be3ba4_front_super_zoom.webp',
@@ -139,7 +139,7 @@ let products = [
         Round neckline with raw edges
         Short sleeves
         Regular fit </p>`,
-        cost: 20,
+        cost: 1020,
         inCart: 1,
         image_one: 'https://product.koovs.com/155190_6f19357f5fb24f0d9fdc477fc3106e5a_image1_super_zoom.webp',
         image_two: 'https://product.koovs.com/155190_6f19357f5fb24f0d9fdc477fc3106e5a_front_super_zoom.webp',
@@ -159,7 +159,7 @@ let products = [
         Utility pockets
         Belt loops
         Slim fit</p>`,
-        cost: 20,
+        cost: 2000,
         inCart: 1,
         image_one: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_image1_super_zoom.webp',
         image_two: 'https://product.koovs.com/154884_75a5de1f6cc84c9f93724c080cde5065_left_super_zoom.webp',
@@ -180,7 +180,7 @@ let products = [
         Embroidered design in front
         Long sleeves
         Slim fit</p>`,
-        cost: 15,
+        cost: 1509,
         inCart: 1,
         image_one: 'https://product.koovs.com/155654_a38d2a34bb7c41fa976eae46011679c3_image1_super_zoom.webp',
         image_two: 'https://product.koovs.com/266x230/155654_a38d2a34bb7c41fa976eae46011679c3_image1_super_zoom.jpg',
@@ -198,7 +198,7 @@ let products = [
         Prints: We print using state-of-the-art screen-printing processes and other apparel embellishment techniques, including soft-hand inks, water-based inks, speciality inks, foils, and flocks. ArtBlot® is an environmentally friendly company and all of our inks are phthalate-free.
         Wash Care: Machine wash. Wash in cold water, use mild detergent, dry in shade, do not iron directly or scrub on print, do not bleach, do not tumble dry. Dry on a flat surface as hanging may cause measurement variations.
         Please Note: Colours may slightly vary depending on your screen brightness.</p>`,
-        cost: 35,
+        cost: 3500,
         inCart: 1,
         image_one: 'https://cdn.shopify.com/s/files/1/0073/8790/6130/products/ArtBlotMen_sBlackGlowInDarkgraphicartT-shirt_TheShrine_frontview_1800x1800.jpg?v=1594547551',
         image_two: 'https://cdn.shopify.com/s/files/1/0073/8790/6130/products/ArtBlotMen_sBlackGlowInDarkgraphicartT-shirt_TheShrineUVtees_frontview_jpg_1800x1800.jpg?v=1594547554',
@@ -215,7 +215,7 @@ let products = [
         <p>
         Get this H&M Solid Plus Size Shirt and more on Dexstitches, we deliver all over Nigeria.  Shop the latest trends & quality wears at the best price, we are here to help you dictate your style and express yourself with fashion pieces that let you rock your occasions and also stay in vogue.
         </p>`,
-        cost: 10,
+        cost: 910,
         inCart: 1,
         image_one: 'https://dexstitches.com/image/cache/catalog/1131-1080x1440.jpg',
         image_two: 'https://dexstitches.com/image/cache/catalog/1133-1080x1440.jpg',
@@ -232,7 +232,7 @@ let products = [
         <p>
         WASH CARE
         Machine Wash 30 Degree Celcius, Tumble Dry Low, Wash Dark Colors Separately, Medium Iron, Do Not Bleach</p>`,
-        cost: 40,
+        cost: 450,
         inCart: 1,
         image_one: 'https://www.allonlinestore.in/media/product/68/73/11-wishlist.jpg',
         image_two: 'https://www.allonlinestore.in/media/product/68/73/15-wishlist.jpg',
@@ -253,7 +253,7 @@ let products = [
         All Over Zebra Print
         Short Sleeves
         Slim Fit</p>`,
-        cost: 17,
+        cost: 1790,
         inCart: 1,
         image_one: 'https://product.koovs.com/155439_66b74e33b50343249b9c32d7cefccc1e_image1_super_zoom.webp',
         image_two: 'https://product.koovs.com/146x230/155439_66b74e33b50343249b9c32d7cefccc1e_front_super_zoom.jpg',
